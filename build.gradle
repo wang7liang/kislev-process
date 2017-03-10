@@ -1,0 +1,71 @@
+group 'com.wusong'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    springFrameworkVersion = '4.2.5.RELEASE'
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://nexus.wusong.com:8081/nexus/content/groups/public/" }
+        maven { url 'http://nexus.tiantong.com/nexus/content/groups/public' }
+        maven { url 'http://repo.spring.io/libs-release' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE'
+        classpath 'org.springframework:springloaded:1.2.5.RELEASE'
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven { url "http://nexus.wusong.com:8081/nexus/content/groups/public/" }
+    maven { url 'http://nexus.tiantong.com/nexus/content/groups/public' }
+    maven { url 'http://repo.spring.io/libs-release' }
+    mavenCentral()
+}
+
+
+dependencies {
+    compile(
+            'org.springframework.boot:spring-boot-starter-web',
+            'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1',
+            //'org.activiti:activiti-spring-boot-starter-basic:5.22.0',
+            'org.activiti:activiti-engine:5.22.0',
+            'org.activiti:activiti-spring:5.22.0',
+            "mysql:mysql-connector-java:5.1.38",
+            "com.alibaba:druid:1.0.25",
+            'org.mybatis:mybatis:3.3.0',
+            'org.mybatis:mybatis-spring:1.2.4'
+    )
+
+
+
+
+
+    testCompile(
+            'junit:junit:4.12',
+            'org.springframework.boot:spring-boot-starter-test'
+    )
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+[compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
