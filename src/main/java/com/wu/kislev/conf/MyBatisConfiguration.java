@@ -20,32 +20,32 @@ import javax.sql.DataSource;
 /**
  * MyBatis基础配置
  */
-@Configuration
-public class MyBatisConfiguration {
-
-    @Resource(name="readDataSource1")
-    DataSource dataSource;
-
-    @Bean
-    public SqlSessionFactory sqlSessionFactory() {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage("com.ws.kislev.model");
-
-        //添加XML目录
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        try {
-            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
-            return bean.getObject();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-        return new SqlSessionTemplate(sqlSessionFactory);
-    }
-
-
-}
+//@Configuration
+//public class MyBatisConfiguration {
+//
+//    @Resource(name="readDataSource1")
+//    private DataSource dataSource;
+//
+//    @Bean(name = "sqlSessionFactory")
+//    public SqlSessionFactory sqlSessionFactoryBean() {
+//        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+//        bean.setDataSource(dataSource);
+//        bean.setTypeAliasesPackage("com.ws.kislev.model");
+//
+//        //添加XML目录
+//        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+//        try {
+//            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+//            return bean.getObject();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//
+//    @Bean
+//    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+//        return new SqlSessionTemplate(sqlSessionFactory);
+//    }
+//
+//
+//}

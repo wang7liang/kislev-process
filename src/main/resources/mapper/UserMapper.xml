@@ -10,4 +10,5 @@
     <select id="getUserByGroupName" resultMap="BaseResultMap" parameterType="java.lang.String">
         select * from kv_sys_user
     </select>
+
 </mapper>
