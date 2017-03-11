@@ -1,4 +1,4 @@
-package com.wu.kislev.service;
+package com.ws.kislev.service;
 
 import java.util.List;
 

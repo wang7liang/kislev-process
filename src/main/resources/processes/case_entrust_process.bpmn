@@ -9,7 +9,7 @@
     <sequenceFlow id="_9" sourceRef="_2" targetRef="_4"/>
     <sequenceFlow id="_13" sourceRef="_7" targetRef="_8"/>
     <sequenceFlow id="_14" sourceRef="_8" targetRef="_3"/>
-    <userTask activiti:candidateUsers="${groupService.getGroupUsers('testGroup')}" activiti:exclusive="true" id="_12" name="接案"/>
+    <userTask activiti:candidateUsers="${userService.getGroupUsers('testGroup')}" activiti:exclusive="true" id="_12" name="接案"/>
     <sequenceFlow id="_15" sourceRef="_4" targetRef="_12"/>
     <sequenceFlow id="_5" sourceRef="_12" targetRef="_7"/>
   </process>
@@ -46,9 +46,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_12" id="Shape-_12">
-        <omgdc:Bounds height="55.0" width="85.0" x="220.0" y="265.0"/>
+        <omgdc:Bounds height="80.0" width="85.0" x="225.0" y="175.0"/>
         <bpmndi:BPMNLabel>
-          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+          <omgdc:Bounds height="80.0" width="85.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13" sourceElement="_7" targetElement="_8">
@@ -60,7 +60,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_15" id="BPMNEdge__15" sourceElement="_4" targetElement="_12">
         <omgdi:waypoint x="180.0" y="282.5"/>
-        <omgdi:waypoint x="220.0" y="292.5"/>
+        <omgdi:waypoint x="225.0" y="215.0"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
@@ -73,7 +73,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_5" id="BPMNEdge__5" sourceElement="_12" targetElement="_7">
-        <omgdi:waypoint x="305.0" y="292.5"/>
+        <omgdi:waypoint x="310.0" y="215.0"/>
         <omgdi:waypoint x="475.0" y="297.5"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>

@@ -1,8 +1,8 @@
-package com.wu.kislev.service.impl;
+package com.ws.kislev.service.impl;
 
-import com.wu.kislev.dao.UserMapper;
-import com.wu.kislev.model.User;
-import com.wu.kislev.service.UserService;
+import com.ws.kislev.dao.UserMapper;
+import com.ws.kislev.model.User;
+import com.ws.kislev.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

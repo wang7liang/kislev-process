@@ -1,4 +1,4 @@
-package com.wu.kislev.model;
+package com.ws.kislev.model;
 
 /**
  * Created by macmini-g1hw on 17/3/10.

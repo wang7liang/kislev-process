@@ -1,4 +1,4 @@
-package com.wu.kislev.conf;
+package com.ws.kislev.conf;
 
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 import org.springframework.web.context.request.RequestContextListener;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
@@ -25,7 +26,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class MyBatisConfig implements TransactionManagementConfigurer {
 
-    @Autowired
+    @Resource(name="readDataSource1")
     DataSource dataSource;
 
     @Bean(name = "sqlSessionFactory")

@@ -1,6 +1,6 @@
-package com.wu.kislev.dao;
+package com.ws.kislev.dao;
 
-import com.wu.kislev.model.User;
+import com.ws.kislev.model.User;
 
 import java.util.List;
 

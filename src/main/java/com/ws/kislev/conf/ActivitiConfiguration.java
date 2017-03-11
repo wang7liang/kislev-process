@@ -1,4 +1,4 @@
-package com.wu.kislev.conf;
+package com.ws.kislev.conf;
 
 import org.activiti.engine.*;
 import org.activiti.spring.ProcessEngineFactoryBean;

@@ -1,6 +1,6 @@
-package com.wu.kislev.service.impl;
+package com.ws.kislev.service.impl;
 
-import com.wu.kislev.service.ProcessService;
+import com.ws.kislev.service.ProcessService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.runtime.ProcessInstance;

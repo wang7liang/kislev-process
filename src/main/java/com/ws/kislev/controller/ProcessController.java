@@ -1,6 +1,6 @@
-package com.wu.kislev.controller;
+package com.ws.kislev.controller;
 
-import com.wu.kislev.service.ProcessService;
+import com.ws.kislev.service.ProcessService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
