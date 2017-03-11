@@ -30,6 +30,7 @@ public class ActivitiConfiguration {
     private DataSource dataSource;
 
     @Autowired
+    @Qualifier("writeDataTransactionManager")
     private PlatformTransactionManager platformTransactionManager;
 
 

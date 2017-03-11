@@ -4,6 +4,7 @@ import com.ws.kislev.dao.UserMapper;
 import com.ws.kislev.model.User;
 import com.ws.kislev.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -16,7 +17,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
-    
+
+    @Transactional("readDataSource1")
     @Override
     public List<String> getGroupUsers(String groupName) {
         List<String> usernameList = new ArrayList<>();
@@ -25,6 +27,19 @@ public class UserServiceImpl implements UserService {
         for(User user : userList){
             usernameList.add(user.getUsername());
         }
+
+        User user = new User();
+        user.setId(userList.get(userList.size()-1).getId()+1);
+        user.setUsername("wang"+user.getId());
+        user.setPassword("111111");
+        userMapper.add(user);
+
+        int s = 1/0;
+
+        user.setId(userList.get(userList.size()-1).getId()+1);
+        user.setUsername("wang"+user.getId());
+        user.setPassword("111111");
+        userMapper.add(user);
 
         return usernameList;
     }

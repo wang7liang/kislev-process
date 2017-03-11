@@ -9,5 +9,7 @@ import java.util.List;
  */
 public interface UserMapper {
 
-    List<User> getUserByGroupName(String groupName);
+    public List<User> getUserByGroupName(String groupName);
+
+    public void add(User user);
 }

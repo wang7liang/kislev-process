@@ -8,7 +8,11 @@
     </resultMap>
 
     <select id="getUserByGroupName" resultMap="BaseResultMap" parameterType="java.lang.String">
-        select * from kv_sys_user
+        select * from kv_sys_user order by id
     </select>
-
+    
+    <insert id="add" parameterType="com.ws.kislev.model.User" >
+        insert into kv_sys_user(id,username,password) values(#{id},#{username},#{password})
+    </insert>
+    
 </mapper>
