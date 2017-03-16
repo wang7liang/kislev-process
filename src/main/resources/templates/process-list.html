@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form id="iform" th:action="@{/test/deploy}" th:method="post" enctype="multipart/form-data" >
+    <table border="1">
+        <tr>
+            <td><input type="file" name="file" /></td>
+            <td><input type="submit" value="添加"/></td>
+        </tr>
+    </table>
+</form>
+
+<ol>
+    <li>List循环：
+        <table border="1">
+            <tr>
+                <th>流程定义id</th>
+                <th>部署id</th>
+                <th>流程定义名称</th>
+                <th>流程定义key</th>
+                <th>版本号</th>
+                <th>xml资源名称</th>
+                <th>图片资源名称</th>
+                <th>删除</th>
+                <th>启动</th>
+            </tr>
+            <tr  th:each="pd : ${processDefinitionList}">
+                <td th:text="${pd.id}"></td>
+                <td th:text="${pd.deploymentId}"></td>
+                <td th:text="${pd.name}"></td>
+                <td th:text="${pd.key}"></td>
+                <td th:text="${pd.version}"></td>
+                <td><a th:href="@{/test/read-resource(pdid=${pd.id},resourceName=${pd.resourceName})}" ><p th:text="${pd.resourceName}" /></a></td>
+                <td><a th:href="@{/test/read-resource(pdid=${pd.id},resourceName=${pd.diagramResourceName})}" ><p th:text="${pd.diagramResourceName}" /></a></td>
+                <td><a th:href="@{/test/delete-deployment(deploymentId=${pd.deploymentId})}" >删除</a></td>
+                <td><a th:href="@{/test/process/{id}(id=${pd.id})}" >启动</a></td>
+            </tr>
+        </table>
+    </li>
+</ol>
+
+</body>
+</html>

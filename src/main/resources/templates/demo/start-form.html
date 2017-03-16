@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+开始表单
+
+<form id="iform" th:action="@{/demo/process/start/{id}(id=${processDefinitionId})}" th:method="post" >
+
+        <ol>
+            <li>List循环：
+                <table border="1">
+                    <tr>
+                        <td>请假开始日期:<input type="text" name="startDate" /></td>
+                        <td>请假结束日期:<input type="text" name="endDate" /></td>
+                        <td>请假原因:<input type="text" name="reason" /></td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+
+    <input type="submit" value="启动流程"/>
+</form>
+
+</body>
+</html>

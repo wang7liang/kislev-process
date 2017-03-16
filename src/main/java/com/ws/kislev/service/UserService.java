@@ -12,4 +12,5 @@ public interface UserService {
      * @return
      */
     public List<String> getGroupUsers(String groupName);
+
 }

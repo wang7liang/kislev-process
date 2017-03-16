@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--<form id="iform" th:action="@{/test/deploy}" th:method="post" enctype="multipart/form-data" >-->
+    <!--<table border="1">-->
+        <!--<tr>-->
+            <!--<td><input type="file" name="file" /></td>-->
+            <!--<td><input type="submit" value="添加"/></td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</form>-->
+
+<ol>
+    <li>List循环：
+        <table border="1">
+            <tr>
+                <th>任务id</th>
+                <th>任务名称</th>
+                <th>流程实例id</th>
+                <th>创建时间</th>
+                <th>办理人</th>
+                <th>签收</th>
+                <th>办理</th>
+                <th>查看</th>
+            </tr>
+            <tr  th:each="task : ${tasks}">
+                <td th:text="${task.id}"></td>
+                <td th:text="${task.name}"></td>
+                <td th:text="${task.processInstanceId}"></td>
+                <td th:text="${task.createTime}"></td>
+                <td th:text="${task.assignee}"></td>
+                <td><a th:href="@{/demo/task/claim/{id}(id=${task.id})}" >签收</a></td>
+                <td><a th:href="@{/demo/task/getform/{id}(id=${task.id})}" >办理</a></td>
+            </tr>
+        </table>
+    </li>
+</ol>
+
+</body>
+</html>

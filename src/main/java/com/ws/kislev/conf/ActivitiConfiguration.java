@@ -7,18 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by macmini-g1hw on 17/3/9.
@@ -28,7 +23,6 @@ public class ActivitiConfiguration {
     @Autowired
     @Qualifier("writeDataSource")
     private DataSource dataSource;
-
     @Autowired
     @Qualifier("writeDataTransactionManager")
     private PlatformTransactionManager platformTransactionManager;
@@ -43,6 +37,11 @@ public class ActivitiConfiguration {
         //springProcessEngineConfiguration.setAsyncExecutorEnabled(true);
         //springProcessEngineConfiguration.setAsyncExecutorActivate(true);
         //springProcessEngineConfiguration.setJobExecutorActivate(false);
+
+        // 流程图中文乱码问题(mac下没有乱码问题)
+        //springProcessEngineConfiguration.setActivityFontName("宋体");
+        //springProcessEngineConfiguration.setLabelFontName("宋体");
+
 
         // 扫描流程定义路径
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
@@ -61,9 +60,7 @@ public class ActivitiConfiguration {
 
 
     @Bean
-    public RepositoryService repositoryService(ProcessEngine processEngine){
-        return processEngine.getRepositoryService();
-    }
+    public RepositoryService repositoryService(ProcessEngine processEngine){ return processEngine.getRepositoryService(); }
 
     @Bean
     public RuntimeService runtimeService(ProcessEngine processEngine){
@@ -91,9 +88,10 @@ public class ActivitiConfiguration {
     }
 
     @Bean
-    public ManagementService managementService(ProcessEngine processEngine){
-        return processEngine.getManagementService();
-    }
+    public ManagementService managementService(ProcessEngine processEngine){ return processEngine.getManagementService(); }
+
+
+
 }
 
 

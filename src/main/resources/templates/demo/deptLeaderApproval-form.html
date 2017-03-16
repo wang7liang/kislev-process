@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+部门领导审批
+
+<form id="iform" th:action="@{/demo/task/complete/{taskId}(taskId=${taskId})}" th:method="post" >
+
+    <ol>
+        <li>List循环：
+            <table border="1">
+                <tr>
+                    <td>请假开始日期:<input type="text" name="startDate" th:value="${startDate}" /></td>
+                    <td>请假结束日期:<input type="text" name="endDate" th:value="${endDate}" /></td>
+                    <td>请假原因:<input type="text" name="reason" th:value="${reason}" /></td>
+                    <td>审批意见:<input type="text" name="deptLeaderApprove" /></td>
+                </tr>
+            </table>
+        </li>
+    </ol>
+
+    <input type="submit" value="完成任务"/>
+</form>
+
+</body>
+</html>
